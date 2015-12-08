@@ -1,6 +1,6 @@
 require 'json'
 
-module Botan
+module Slatan
   class Spirit
     @@config_path = '../../../config.json'
     @@config = {}

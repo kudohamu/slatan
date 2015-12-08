@@ -1,4 +1,4 @@
-module Botan
+module Slatan
   class SlackHeart < Heart
     def beat(ear)
     end
