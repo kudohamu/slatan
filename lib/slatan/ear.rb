@@ -1,4 +1,4 @@
-require "util/string_ex"
+require "utils/string_ex"
 
 module Slatan
   using StringEx
