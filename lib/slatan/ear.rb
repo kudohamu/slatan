@@ -4,11 +4,11 @@ module Slatan
   using StringEx
 
   class Ear
-    def initialize(mouth)
+    def initialize()
       @concerns = []
       Dir[File.expand_path('../../../concerns', __FILE__) << '/*.rb'].each do |file|
         require file
-        @concerns << Object.const_get(File.basename(file, '.*').camelize).new(mouth)
+        @concerns << Object.const_get(File.basename(file, '.*').camelize).new
       end
     end
 
