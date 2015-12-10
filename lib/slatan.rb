@@ -1,17 +1,21 @@
 require "slatan/version"
 require "slatan/spirit"
 require "slatan/heart"
-require "slatan/mouth"
 require "slatan/ear"
+require "slatan/buttocks"
 require "utils/string_ex"
 
 module Slatan
   using StringEx
   Spirit.infuse
+  Buttocks.init
 
   @heart = Heart.new
-  @mouth = Mouth.new @heart
-  @ear   = Ear.new @mouth
+  @ear   = Ear.new
 
-  @heart.beat @ear
+  begin
+    @heart.beat @ear
+  rescue => e
+    Buttocks.fatal "#{e.backtrace.first}: #{e.message} (#{e.class})"
+  end
 end
