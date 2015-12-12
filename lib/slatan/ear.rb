@@ -1,20 +1,19 @@
-require "slatan/utils/string_ex"
-
 module Slatan
-  using StringEx
+  ## class to Event Dispatching for concerns
+  module Ear
+    @concerns = []
 
-  class Ear
-    def initialize()
-      @concerns = []
-      Dir[File.expand_path('../../../concerns', __FILE__) << '/*.rb'].each do |file|
-        require file
-        @concerns << Object.const_get(File.basename(file, '.*').camelize).new
+    class << self
+      ## register subscriber
+      def register(concern)
+        @concerns << concern
       end
-    end
 
-    def hear(msg)
-      @concerns.each do |concern|
-        concern.hear(msg)
+      ## publish to subscribers
+      def hear(msg)
+        @concerns.each do |concern|
+          concern.hear(msg)
+        end
       end
     end
   end

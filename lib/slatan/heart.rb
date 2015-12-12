@@ -7,7 +7,7 @@ require 'json'
 
 module Slatan
   class Heart
-    def beat(ear)
+    def beat()
       req = Net::HTTP.post_form URI("#{Spirit.slack_api_url}/rtm.start"), token: Spirit.slack_token
       parsed_body = JSON.parse(req.body, symbolize_names: true)
       ws_url = parsed_body[:url]
@@ -24,7 +24,7 @@ module Slatan
           p [:message, event.data]
           Buttocks.debug("message: #{event.data}")
           data = JSON.parse(event.data, symbolize_names: true)
-          ear.hear(data)
+          Ear.hear(data)
         end
 
         @ws.on :close do |event|

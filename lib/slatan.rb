@@ -11,10 +11,9 @@ module Slatan
       Buttocks.init
 
       @heart = Heart.new
-      @ear   = Ear.new
 
       begin
-        @heart.beat @ear
+        @heart.beat
       rescue => e
         Buttocks.fatal "#{e.backtrace.first}: #{e.message} (#{e.class})"
       end
