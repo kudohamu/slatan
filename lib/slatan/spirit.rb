@@ -9,7 +9,7 @@ module Slatan
 
     # about LOGGING
     @logfile_path =  '/tmp/slatan.log'
-    @log_level = 'debug'
+    @log_level = 'fatal'
     @use_log = false
 
     class << self
