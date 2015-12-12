@@ -8,7 +8,7 @@ module Slatan
     include Chat
 
     class << self
-      def send(method, msg)
+      def send(category, method, msg)
         base_url = Spirit.slack_api_url
 
         msg = {
@@ -17,7 +17,7 @@ module Slatan
           token: Spirit.slack_token
         }.merge(msg)
 
-        uri = URI.parse("#{base_url}/#{method}?#{URI.encode_www_form(msg)}")
+        uri = URI.parse("#{base_url}/#{category}.#{method}?#{URI.encode_www_form(msg)}")
         request = Net::HTTP::Post.new(uri.request_uri, {
           'Content-Type' =>'application/json'
         })
