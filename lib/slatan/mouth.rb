@@ -1,5 +1,5 @@
 require 'slatan/spirit'
-require 'slatan/api_wrapper/chat'
+require 'slatan/mouth/chat'
 
 require 'net/http'
 
