@@ -1,5 +1,0 @@
-{
-  "slack_token": "xxxxx-xxxxxx-xxxxxxxxxxxxxxx",
-  "logfile_path": "/tmp/slatan.log",
-  "log_level": "debug"
-}
