@@ -2,7 +2,7 @@ require 'slatan/spirit'
 require 'logger'
 
 module Slatan
-  # Wrapper class of Logger
+  ## Wrapper class of Logger
   class Buttocks
     @@use_log = Spirit.use_log
     class << self
