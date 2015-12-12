@@ -2,19 +2,16 @@ require 'json'
 
 module Slatan
   class Spirit
-    @@config_path = '../../../config.json'
-    @@config = {}
+    @slack_api_url = 'https://slack.com/api'
+    @slack_token = 'xxxxx-xxxxxx-xxxxxxxxxxxxxxx'
+    @logfile_path =  '/tmp/slatan.log'
+    @log_level = 'debug'
+    @use_log = false
 
     class << self
-      def infuse
-        config_file = File.open(File.expand_path(@@config_path, __FILE__), 'r')
-        @@config = JSON.parse(config_file.read, {symbolize_names: true})
-        config_file.close
-      end
-
-      def see()
-        @@config
-      end
+      attr_accessor :slack_api_url,
+                    :slack_token,
+                    :logfile_path
     end
   end
 end

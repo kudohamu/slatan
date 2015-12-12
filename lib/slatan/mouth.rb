@@ -9,11 +9,12 @@ module Slatan
 
     class << self
       def send(method, msg)
-        base_url = 'https://slack.com/api'
+        base_url = Spirit.slack_api_url
+
         msg = {
           channel: 'C04QLLWR6',
           as_user: true,
-          token: Spirit.see[:slack_token]
+          token: Spirit.slack_token
         }.merge(msg)
 
         uri = URI.parse("#{base_url}/#{method}?#{URI.encode_www_form(msg)}")

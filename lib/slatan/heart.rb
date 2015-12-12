@@ -7,11 +7,8 @@ require 'json'
 
 module Slatan
   class Heart
-
-    @@slack_api_url = 'https://slack.com/api'
-
     def beat(ear)
-      req = Net::HTTP.post_form URI("#{@@slack_api_url}/rtm.start"), token: Spirit.see[:slack_token]
+      req = Net::HTTP.post_form URI("#{Spirit.slack_api_url}/rtm.start"), token: Spirit.slack_token
       parsed_body = JSON.parse(req.body, symbolize_names: true)
       ws_url = parsed_body[:url]
       EM.run {
