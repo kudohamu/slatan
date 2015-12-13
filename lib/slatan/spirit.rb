@@ -1,11 +1,12 @@
 require 'json'
+require 'active_support/core_ext/object'
 
 module Slatan
   ## Class to retain configure for slatan
   class Spirit
     # about Slack
     @slack_api_url = 'https://slack.com/api'
-    @slack_token = 'xxxxx-xxxxxx-xxxxxxxxxxxxxxx'
+    @slack_token = ENV['SLATAN_SLACK_TOKEN']
 
     # about LOGGING
     @log_file_path =  '/tmp/slatan.log'
@@ -13,7 +14,11 @@ module Slatan
     @use_log = true
 
     # about daemon
-    @pid_file_path = '/tmp/slatan.pid'
+    @pid_file_path = ENV['SLATAN_PID_FILE_PATH'].presence || '/tmp/slatan.pid'
+
+    # else
+    @ignore_bot_reply = true  #be careful sending message loop if you set false.
+    @ignore_self_message = true  #be careful sending message loop if you set false.
 
     class << self
       attr_accessor :slack_api_url,
