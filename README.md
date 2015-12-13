@@ -1,8 +1,6 @@
 # Slatan
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/slatan`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+It's gem to create bot for Slack easily and flexibly.
 
 ## Installation
 
@@ -22,17 +20,37 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Add 'Bot' integration and cory API token on Slack.
 
-## Development
+2. Generate event subscriber class.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment. Run `bundle exec slatan` to use the gem in this directory, ignoring other installed copies of this gem.
+```
+$ rake slatan:generate['/path/to/your/preference/test.rb']
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+3. Write code to running slatan.
+
+```
+require 'slatan'
+require 'path/to/your/preference/test.rb'
+
+Slatan::Spirit.slack_token = 'xxxx-xxxxxx-xxxxxxxxxx'   #or `export SLACK_TOKEN=xxxxx-xxxx-xxxxxxxxxx`
+
+Slatan::Ear.register(Test.new)   #register event subscriber
+
+Slatan.run   #write 'Slatan.run({ daemonize: true })' if you run daemonize mode.
+```
+
+4. type 'ping' on Slack
+
+![slatan example](https://dl.dropboxusercontent.com/u/74925506/slatan_invitation.png)
+
+##Documentation
+Under construction...
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/slatan. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kudohamu/slatan.
 
 
 ## License
