@@ -5,13 +5,17 @@ module Slatan
 
       class << self
         ## @see https://api.slack.com/methods/pins.add
-        def add(options={})
-          send('add', options)
+        def add(channel, options={})
+          send('add', {
+            channel: channel
+          }.merge(options))
         end
 
         ## @see https://api.slack.com/methods/pins.remove
-        def remove(options={})
-          send('remove', options)
+        def remove(channel, options={})
+          send('remove', {
+            channel: channel
+          }.merge(options))
         end
 
         private

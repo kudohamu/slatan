@@ -44,7 +44,6 @@ module Slatan
         base_url = Spirit.slack_api_url
 
         msg = {
-          channel: 'C04QLLWR6',
           as_user: true,
           token: Spirit.slack_token
         }.merge(msg)

@@ -5,13 +5,17 @@ module Slatan
 
       class << self
         ## @see https://api.slack.com/methods/im.close
-        def close(options={})
-          send('close', options)
+        def close(channel, options={})
+          send('close', {
+            channel: channel
+          }.merge(options))
         end
 
         ## @see https://api.slack.com/methods/im.history
-        def history(options={})
-          send('history', options)
+        def history(channel, options={})
+          send('history', {
+            channel: channel
+          }.merge(options))
         end
 
         ## @see https://api.slack.com/methods/im.list
@@ -20,8 +24,9 @@ module Slatan
         end
 
         ## @see https://api.slack.com/methods/im.mark
-        def mark(ts, options={})
+        def mark(channel, ts, options={})
           send('mark', {
+            channel: channel,
             ts: ts
           }.merge(options))
         end

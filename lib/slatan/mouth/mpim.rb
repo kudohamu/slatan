@@ -5,8 +5,10 @@ module Slatan
 
       class << self
         ## @see https://api.slack.com/methods/mpim.close
-        def close(options={})
-          send('close', options)
+        def close(channel, options={})
+          send('close', {
+            channel: channel
+          }.merge(options))
         end
 
         ## @see https://api.slack.com/methods/mpim.list
@@ -15,8 +17,9 @@ module Slatan
         end
 
         ## @see https://api.slack.com/methods/mpim.mark
-        def mark(ts, options={})
+        def mark(channel, ts, options={})
           send('mark', {
+            channel: channel,
             ts: ts
           }.merge(options))
         end

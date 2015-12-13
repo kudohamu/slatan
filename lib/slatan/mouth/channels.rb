@@ -5,32 +5,44 @@ module Slatan
 
       class << self
         ## @see https://api.slack.com/methods/channels.history
-        def history(options={})
-          send('history', options)
+        def history(channel, options={})
+          send('history', {
+            channel: channel
+          }.merge(options))
         end
 
         ## @see https://api.slack.com/methods/channels.info
-        def info(options={})
-          send('info', options)
+        def info(channel, options={})
+          send('info', {
+            channel: channel
+          }.merge(options))
+        end
+        
+        ## @see https://api.slack.com/methods/channels.list
+        def list(options={})
+          send('list', options)
         end
 
         ## @see https://api.slack.com/methods/channels.mark
-        def mark(ts, options={})
+        def mark(channel, ts, options={})
           send('mark', {
+            channel: channel,
             ts: ts
           }.merge(options))
         end
 
         ## @see https://api.slack.com/methods/channels.setPurpose
-        def set_purpose(purpose, options={})
+        def set_purpose(channel, purpose, options={})
           send('setPurpose', {
+            channel: channel,
             purpose: purpose
           }.merge(options))
         end
 
         ## @see https://api.slack.com/methods/channels.setTopic
-        def set_topic(topic, options={})
+        def set_topic(channel, topic, options={})
           send('setTopic', {
+            channel: channel,
             topic: topic
           }.merge(options))
         end
