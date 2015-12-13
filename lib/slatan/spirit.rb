@@ -26,7 +26,9 @@ module Slatan
                     :log_file_path,
                     :log_level,
                     :use_log,
-                    :pid_file_path
+                    :pid_file_path,
+                    :ignore_bot_reply,
+                    :ignore_self_message
     end
   end
 end
