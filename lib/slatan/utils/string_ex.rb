@@ -3,7 +3,7 @@ module Slatan
     module StringEx
       refine String do
         def camelize
-          self.split('_').map(&:capitalize).join
+          self.split(/_|\-/).map(&:capitalize).join
         end
       end
     end
