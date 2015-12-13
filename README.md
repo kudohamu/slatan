@@ -1,6 +1,6 @@
 # Slatan
 
-It's gem to create bot for Slack easily and flexibly.
+Ruby gem to create bot for Slack easily and flexibly.
 
 ## Installation
 
@@ -20,17 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
-1. Add 'Bot' integration and cory API token on Slack.
+#### 1. Add 'Bot' integration and cory API token on Slack.
 
-2. Generate event subscriber class.
+#### 2. Generate event subscriber class.
 
 ```
 $ rake slatan:generate['/path/to/your/preference/test.rb']
 ```
 
-3. Write code to running slatan.
+#### 3. Write code to running slatan.
 
-```
+```ruby
 require 'slatan'
 require 'path/to/your/preference/test.rb'
 
@@ -41,7 +41,7 @@ Slatan::Ear.register(Test.new)   #register event subscriber
 Slatan.run   #write 'Slatan.run({ daemonize: true })' if you run daemonize mode.
 ```
 
-4. type 'ping' on Slack
+#### 4. type 'ping' on Slack
 
 ![slatan example](https://dl.dropboxusercontent.com/u/74925506/slatan_invitation.png)
 
