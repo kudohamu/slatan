@@ -38,7 +38,7 @@ Slatan::Spirit.slack_token = 'xxxx-xxxxxx-xxxxxxxxxx'   #or `export SLACK_TOKEN=
 
 Slatan::Ear.register(Test.new)   #register event subscriber
 
-Slatan.run   #write 'Slatan.run({ daemonize: true })' if you run daemonize mode.
+Slatan.run   #write 'Slatan.run({ daemonize: true })' if you want to run daemonize mode.
 ```
 
 #### 4. type 'ping' on Slack
