@@ -1,0 +1,14 @@
+require 'slatan'
+
+class <%= class_name %>
+  def initialize
+  end
+
+  # this method receive message
+  def hear(msg)
+    # example
+    if msg[:type] == 'message' && msg[:text] == 'ping'
+      Slatan::Mouth::Chat.postMessage(msg[:channel], 'pong')
+    end
+  end
+end
