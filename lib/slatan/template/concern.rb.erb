@@ -8,7 +8,7 @@ class <%= class_name %>
   def hear(msg)
     # example
     if msg[:type] == 'message' && msg[:text] == 'ping'
-      Slatan::Mouth::Chat.postMessage(msg[:channel], 'pong')
+      Slatan::Mouth::Chat.post_message(msg[:channel], 'pong')
     end
   end
 end
