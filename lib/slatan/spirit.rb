@@ -8,15 +8,20 @@ module Slatan
     @slack_token = 'xxxxx-xxxxxx-xxxxxxxxxxxxxxx'
 
     # about LOGGING
-    @logfile_path =  '/tmp/slatan.log'
-    @log_level = 'fatal'
-    @use_log = false
+    @log_file_path =  '/tmp/slatan.log'
+    @log_level = 'debug'
+    @use_log = true
+
+    # about daemon
+    @pid_file_path = '/tmp/slatan.pid'
 
     class << self
       attr_accessor :slack_api_url,
                     :slack_token,
-                    :logfile_path,
-                    :use_log
+                    :log_file_path,
+                    :log_level,
+                    :use_log,
+                    :pid_file_path
     end
   end
 end
