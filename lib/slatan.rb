@@ -1,7 +1,9 @@
 require "slatan/version"
 require "slatan/spirit"
 require "slatan/heart"
+require "slatan/mouth"
 require "slatan/ear"
+require "slatan/affiliation"
 require "slatan/buttocks"
 
 module Slatan
