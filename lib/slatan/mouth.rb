@@ -14,6 +14,7 @@ require 'slatan/mouth/rtm'
 require 'slatan/mouth/stars'
 require 'slatan/mouth/team'
 require 'slatan/mouth/users'
+require 'slatan/mouth/ext'
 require 'slatan/buttocks'
 
 require 'net/http'
@@ -38,6 +39,7 @@ module Slatan
     include Stars
     include Team
     include Users
+    include Ext
 
     class << self
       def send(category, method, msg)
