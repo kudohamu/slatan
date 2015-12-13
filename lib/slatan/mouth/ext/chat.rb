@@ -17,6 +17,7 @@ module Slatan
           #
           # @see https://api.slack.com/methods/chat.postMessage
           def reply(user, channel, text, options={})
+            user = user.to_s if user.kind_of?(Symbol)
             user_id = Affiliation::Users.is_id?(user) ? user : Affiliation::Users.get_id(user)
             if user_id.nil?
               Buttocks.error("user '#{user}' is not exist. (reply_message)")
