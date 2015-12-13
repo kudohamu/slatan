@@ -33,7 +33,7 @@ module Slatan
         ## check bot or human
         # @return bool true: bot, false: human
         def is_bot?(ident)
-          key = is_id?(ident) : :id ? :name
+          key = if is_id?(ident) then :id else :name end
           @users.each do |user|
             if user[key] == ident
               return user[:is_bot]
@@ -46,7 +46,7 @@ module Slatan
         ## check id or name
         # @return bool true: id, false: name
         def is_id?(key)
-          key ~= /^[A-Z0-9]+$/
+          key =~ /^[A-Z0-9]+$/
         end
       end
     end
