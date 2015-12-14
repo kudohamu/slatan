@@ -18,12 +18,13 @@ def generate(path)
   class_name = file_name.camelize
   dir_path = File.dirname(path)
   FileUtils.mkdir_p dir_path
-  File.open('./lib/slatan/template/concern.rb.erb') do |file|
+  File.open(File.expand_path('../../lib/slatan/template/concern.rb.erb', __FILE__)) do |file|
     erb = ERB.new(file.read).result(binding)
     File.open(File.join(dir_path, "#{file_name}.rb"), 'w') do |file|
       file << erb
     end
   end
+  puts 'generated.'
 end
 
 def kill
