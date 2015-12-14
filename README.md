@@ -25,7 +25,7 @@ Or install it yourself as:
 #### 2. Generate event subscriber class.
 
 ```
-$ slatan generate /path/to/your/preference/test.rb'
+$ (bundle exec) slatan generate /path/to/your/preference/test.rb'
 ```
 
 #### 3. Write code to running slatan.
