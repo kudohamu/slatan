@@ -2,6 +2,7 @@
 
 require 'fileutils'
 require 'erb'
+require 'rake'
 require 'slatan/utils/string_ex'
 
 using Slatan::Utils::StringEx
@@ -24,10 +25,25 @@ def generate(path)
   end
 end
 
+def kill
+  pid_file_path = ENV['SLATAN_PID_FILE_PATH'] || '/tmp/slatan.pid'
+  if !FileTest.exist? pid_file_path
+    puts "'#{pid_file_path}' is not exist."
+    exit 0
+  end
+  sh "kill `cat #{pid_file_path}`"
+  puts 'killed.'
+end
+
 if $*[0] == 'generate'
   generate($*[1])
+elsif $*[0] == 'kill'
+  kill
 else 
-  puts 'Usage: slatan generate </path/to/your/preference/subscriber/name>' 
+  puts 'Usage: slatan <COMMAND>'
+  puts '=======COMMAND========'
+  puts 'generate </path/to/your/preference/subscriber/name>: Generate subscriber class file.' 
+  puts 'kill: kill daemon process of slatan.' 
   exit 0
 end
 
