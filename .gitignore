@@ -11,4 +11,4 @@
 .DS_Store
 /concerns/
 config.json
-/exe/
+/bin/
