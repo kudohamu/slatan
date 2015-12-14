@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'erb'
+require 'slatan/utils/string_ex'
+
+using Slatan::Utils::StringEx
+
+def generate(path)
+  if path.nil?
+    puts 'Usage: slatan generate </path/to/your/preference/subscriber/name>' 
+    exit 0
+  end
+
+  file_name = File.basename(path, '.*')
+  class_name = file_name.camelize
+  dir_path = File.dirname(path)
+  FileUtils.mkdir_p dir_path
+  File.open('./lib/slatan/template/concern.rb.erb') do |file|
+    erb = ERB.new(file.read).result(binding)
+    File.open(File.join(dir_path, "#{file_name}.rb"), 'w') do |file|
+      file << erb
+    end
+  end
+end
+
+if $*[0] == 'generate'
+  generate($*[1])
+else 
+  puts 'Usage: slatan generate </path/to/your/preference/subscriber/name>' 
+  exit 0
+end
+
