@@ -3,6 +3,7 @@
 require 'fileutils'
 require 'erb'
 require 'rake'
+require 'active_support/core_ext/object'
 require 'slatan/utils/string_ex'
 
 using Slatan::Utils::StringEx
@@ -26,7 +27,7 @@ def generate(path)
 end
 
 def kill
-  pid_file_path = ENV['SLATAN_PID_FILE_PATH'] || '/tmp/slatan.pid'
+  pid_file_path = ENV['SLATAN_PID_FILE_PATH'].presence || '/tmp/slatan.pid'
   if !FileTest.exist? pid_file_path
     puts "'#{pid_file_path}' is not exist."
     exit 0
