@@ -3,6 +3,7 @@ require 'slatan/mouth/api'
 require 'slatan/mouth/auth'
 require 'slatan/mouth/channels'
 require 'slatan/mouth/chat'
+require 'slatan/mouth/dnd'
 require 'slatan/mouth/emoji'
 require 'slatan/mouth/files'
 require 'slatan/mouth/groups'
@@ -28,6 +29,7 @@ module Slatan
     include Auth
     include Channels
     include Chat
+    include Dnd
     include Emoji
     include Files
     include Groups
